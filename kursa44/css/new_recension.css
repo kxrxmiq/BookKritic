@@ -1,0 +1,163 @@
+/* Стили для кнопки создания рецензии */
+.create-review-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-right: 1rem;
+}
+
+.create-review-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 2% auto; /* Уменьшаем отступ сверху */
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh; /* Ограничиваем высоту */
+  overflow-y: auto; /* Добавляем прокрутку если контент не помещается */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.modal h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Стили для формы в модальном окне */
+#review-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+#review-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#review-form input,
+#review-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#review-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.rating-stars {
+  font-size: 1.8rem;
+  color: #ddd;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.rating-stars i {
+  margin-right: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.rating-stars i.active,
+.rating-stars i:hover {
+  color: #ffd700;
+}
+
+#review-form .submit-btn {
+  margin-top: auto; /* Прижимаем кнопку к низу */
+  position: sticky;
+  bottom: 0;
+  background-color: var(--primary-color);
+}
+#review-form .submit-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Адаптивность модального окна */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10% auto;
+    padding: 1.5rem;
+  }
+}
+/* Новые стили для компактной формы */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 0.8rem;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+.submit-btn {
+  flex: 2;
+}
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}

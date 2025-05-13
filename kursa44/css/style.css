@@ -1,0 +1,1131 @@
+/* Base Styles */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --accent-color: #4fc3f7;
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.dark-theme {
+  --primary-color: #64b5f6;
+  --secondary-color: #1976d2;
+  --accent-color: #4fc3f7;
+  --text-color: #e0e0e0;
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Styles */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav ul li {
+  margin-left: 1.5rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav ul li a.active:after,
+.nav ul li a:hover:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle .fa-sun {
+  display: none;
+}
+
+.dark-theme .theme-toggle .fa-moon {
+  display: none;
+}
+
+.dark-theme .theme-toggle .fa-sun {
+  display: block;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Reviews Section - Z-Pattern Layout */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.review-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.review-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.review-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.review-card:hover .review-image img {
+  transform: scale(1.05);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.review-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.author {
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.excerpt {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: var(--transition);
+  text-align: center;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+  }
+
+  .nav ul {
+    margin-top: 1rem;
+  }
+
+  .nav ul li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+/* Добавьте в конец файла: */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 400px;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 15px;
+}
+
+.carousel-control.next {
+  right: 15px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-indicators span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators span.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.hero-text {
+  text-align: center;
+  padding: 2rem 0;
+}
+.social-links a.map-link {
+  color: #ff5252; /* Красный цвет как у Google Maps */
+  transition: all 0.3s ease;
+}
+
+.social-links a.map-link:hover {
+  color: #ff0000;
+  transform: scale(1.2);
+}
+
+/* Можно добавить анимацию пульсации */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.social-links a.map-link:hover i {
+  animation: pulse 1s infinite;
+}
+/* Стили для страницы контактов */
+.contacts-page {
+  padding: 3rem 0;
+}
+
+.contacts-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  display: flex;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--shadow-color);
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-right: 1.5rem;
+  align-self: center;
+}
+
+.contact-info h3 {
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+.social-block {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.social-block h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.social-block .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-block .social-links a {
+  color: var(--primary-color);
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+.social-block .social-links a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.feedback-form h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-form {
+    padding: 1.5rem;
+  }
+}
+/* Стили для страницы с рецензией */
+.book-review {
+  padding: 2rem 0;
+}
+
+.review-article {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  overflow: hidden;
+}
+
+.book-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.book-cover {
+  position: relative;
+  flex: 0 0 250px;
+  height: 350px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.rating:before {
+  content: '★';
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+.book-meta {
+  flex: 1;
+  min-width: 300px;
+}
+
+.book-meta h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.book-meta .author {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.details i {
+  margin-right: 5px;
+  color: var(--primary-color);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.review-content {
+  padding: 2rem;
+}
+
+.review-content h2 {
+  color: var(--primary-color);
+  margin: 2rem 0 1rem;
+  font-size: 1.8rem;
+}
+
+.review-content h3 {
+  color: var(--secondary-color);
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.4rem;
+}
+
+.review-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #555;
+}
+
+.pros-cons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.pros, .cons {
+  flex: 1;
+  min-width: 300px;
+}
+
+.pros h3 {
+  color: #2e7d32;
+}
+
+.cons h3 {
+  color: #c62828;
+}
+
+.pros-cons ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pros-cons li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pros-cons i {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.pros i {
+  color: #2e7d32;
+}
+
+.cons i {
+  color: #c62828;
+}
+
+.review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #eee;
+  background: rgba(0,0,0,0.02);
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviewer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.reviewer-bio {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.review-date {
+  color: #666;
+}
+
+.similar-books {
+  margin-top: 3rem;
+}
+
+.similar-books h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.similar-book {
+  background: var(--card-bg);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.similar-book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.similar-book img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.similar-book h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
+}
+
+.similar-book p {
+  color: #666;
+  font-size: 0.9rem;
+  padding: 0 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .book-header {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .book-cover {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .review-content {
+    padding: 1.5rem;
+  }
+
+  .review-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+/* Стили для страницы Топ-10 */
+.top10-page {
+  padding: 2rem 0;
+}
+
+.top10-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.top10-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.top10-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.top10-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.top10-book {
+  display: flex;
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: var(--transition);
+  align-items: center;
+  position: relative;
+}
+
+.top10-book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.top10-book.top {
+  border: 2px solid #ffd700;
+  background: linear-gradient(to right, var(--card-bg), rgba(255, 215, 0, 0.1));
+}
+
+.book-rank {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  min-width: 60px;
+  text-align: center;
+}
+
+.top10-book.top .book-rank {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.book-cover {
+  width: 100px;
+  height: 150px;
+  margin: 0 1.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.book-info .author {
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0,0,0,0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+.rating i {
+  color: #ffd700;
+  margin-left: 5px;
+}
+
+.excerpt {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  background: var(--secondary-color);
+}
+
+.top10-footer {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.top10-footer h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.top10-footer p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.top10-footer ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.top10-footer li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .top10-book {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .book-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.8rem;
+    min-width: auto;
+  }
+
+  .book-cover {
+    margin: 1rem 0;
+    width: 120px;
+  }
+
+  .book-info {
+    width: 100%;
+  }
+}
+/* Стили для секции комментариев */
+.comments-section {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #eee;
+}
+
+.comments-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.comment-form {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.comment-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.comment-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.comment-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+.comments-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.comment {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comment-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.comment-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.comment-text {
+  line-height: 1.6;
+  padding-left: 62px; /* Чтобы текст был на одном уровне с именем */
+}
+
+@media (max-width: 768px) {
+  .comment-form {
+    padding: 1.5rem;
+  }
+
+  .comment-text {
+    padding-left: 0;
+  }
+}
